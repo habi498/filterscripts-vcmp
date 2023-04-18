@@ -161,6 +161,7 @@ void CFilterScripts::RemoveFilterScript(int iIndex)
 			}
 		}
 		sq->settop(v, top);
+		m_iFilterScriptCount--;
 	}
 	SAFE_DELETE(m_pFilterScripts[iIndex]);
 	m_szFilterScriptName[iIndex][0] = '\0';

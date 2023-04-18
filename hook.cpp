@@ -726,7 +726,7 @@ SQInteger mm_newslot(HSQUIRRELVM v)
 									local filterscript_event=rawget(\"_FS_onPlayerCommand\");\
 									onPlayerCommand<-function(player,cmd,text){\
 									local ret=filterscript_event(player,cmd,text);\
-									if(!ret )return gamemode_event(player);\
+									if(!ret )return gamemode_event(player,cmd,text);\
 									};\
 									rawdelete(\"_FS_onPlayerCommand\");\
 									");

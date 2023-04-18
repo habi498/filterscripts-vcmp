@@ -103,7 +103,7 @@ uint8_t FS_OnPluginCommand (uint32_t commandIdentifier, const char* message)
 		if (filterscript)
 		{
 			strcpy(filterscript, message);
-			//Load Filterscript
+			//Unload Filterscript
 			if (sq && v)m_pFilterScripts->UnloadOneFilterScript(filterscript);
 			delete[] filterscript;
 		}
@@ -912,7 +912,8 @@ void FS_OnPlayerModuleList(int32_t playerId, const char* list)
 extern "C" EXPORT unsigned int VcmpPluginInit(PluginFuncs * Funcs, PluginCallbacks * Calls, PluginInfo * Info)
 {
 	VCMP = Funcs;
-	Info->pluginVersion = 0x0;
+	Info->pluginVersion = 0x1;
+	memcpy(Info->name, "FilterScripts", 14);
 	Info->apiMinorVersion = PLUGIN_API_MINOR;
 	Info->apiMajorVersion = PLUGIN_API_MAJOR;
 	Calls->OnPluginCommand = FS_OnPluginCommand;
